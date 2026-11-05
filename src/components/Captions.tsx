@@ -20,6 +20,8 @@ interface CaptionsProps {
   fontSize?: number;
   y?: number; // absolute offset from bottom, default 140
   align?: 'center' | 'left' | 'right';
+  /** Optional pre-computed highlighted word (caller may pass it) */
+  highlightWord?: string | null;
 }
 
 export const Captions: React.FC<CaptionsProps> = ({
@@ -29,6 +31,7 @@ export const Captions: React.FC<CaptionsProps> = ({
   fontSize = 46,
   y = 140,
   align = 'center',
+  highlightWord = null,
 }) => {
   const active = captions.filter((c) => time >= c.start && time <= c.end);
 
@@ -38,7 +41,9 @@ export const Captions: React.FC<CaptionsProps> = ({
   startIdx = Math.min(startIdx, Math.max(0, captions.length - window));
   const windowWords = captions.slice(startIdx, startIdx + window);
 
-  const highlight = windowWords.find((w) => time >= w.start && time <= w.end);
+  const highlightSource = highlightWord ?? windowWords.find((w) => time >= w.start && time <= w.end);
+  const highlight: CaptionWord | undefined =
+    typeof highlightSource === 'string' ? windowWords.find((w) => w.text === highlightSource) : highlightSource;
 
   const text = windowWords.map((w) => w.text).join(' ');
   const charOffsets: number[] = [0];
