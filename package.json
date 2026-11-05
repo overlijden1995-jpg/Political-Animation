@@ -1,0 +1,33 @@
+{
+  "name": "political-animation",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Multi-step production engine for animated US politics videos. Remotion + Agentic AI. Kurzgesagt-inspired comic/hand-drawn style. Two pipelines: YouTube Shorts (9:16, <60s) and long-form (16:9, 5-10 min).",
+  "scripts": {
+    "dev": "remotion studio src/index.ts",
+    "studio": "remotion studio src/index.ts",
+    "build": "remotion bundle",
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint src scripts || true",
+    "render:shorts": "tsx scripts/render.ts ShortsPlayer out/shorts.mp4",
+    "render:longform": "tsx scripts/render.ts LongFormPlayer out/longform.mp4",
+    "pipeline": "tsx src/agents/pipeline.ts"
+  },
+  "dependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "remotion": "^4.0.180"
+  },
+  "devDependencies": {
+    "@remotion/cli": "^4.0.180",
+    "@remotion/renderer": "^4.0.180",
+    "@types/react": "^18.3.3",
+    "@types/react-dom": "^18.3.0",
+    "typescript": "^5.6.3",
+    "tsx": "^4.19.0",
+    "vite": "^5.4.10"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
