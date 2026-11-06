@@ -163,12 +163,12 @@ const LongFormScene = (props: LongFormProps) => {
         )}
 
         {/* Captions at bottom */}
-        <Captions captions={words} time={time} window={3} fontSize={44} y={120} align="center" />
+        <Captions captions={words} time={time} window={3} fontSize={44} y={260} align="center" />
 
         {/* Scene entry transition */}
         <Transition
           type="panel"
-          progress={Math.max(0, Math.min(1, (active.start + 0.6 - time) / 0.6))}
+          progress={Math.max(0, Math.min(1, (time - active.start) / 0.6))}
           width={W}
           height={H}
         />

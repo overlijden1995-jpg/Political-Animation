@@ -4,14 +4,19 @@
   "private": true,
   "description": "Multi-step production engine for animated US politics videos. Remotion + Agentic AI. Kurzgesagt-inspired comic/hand-drawn style. Two pipelines: YouTube Shorts (9:16, <60s) and long-form (16:9, 5-10 min).",
   "scripts": {
-    "dev": "remotion studio src/index.ts",
-    "studio": "remotion studio src/index.ts",
+    "dev": "remotion studio src/index.tsx",
+    "studio": "remotion studio src/index.tsx",
     "build": "remotion bundle",
     "typecheck": "tsc --noEmit",
     "lint": "eslint src scripts || true",
     "render:shorts": "tsx scripts/render.ts ShortsPlayer out/shorts.mp4",
     "render:longform": "tsx scripts/render.ts LongFormPlayer out/longform.mp4",
-    "pipeline": "tsx src/agents/pipeline.ts"
+    "pipeline": "tsx src/agents/pipeline.ts",
+    "setup": "node scripts/setup.mjs",
+    "doctor": "node scripts/setup.mjs --check",
+    "render:article": "tsx scripts/render.ts Article2026Midterms out/article-2026-midterms.mp4",
+    "render:justice": "tsx scripts/render.ts JusticeComposition out/justice.mp4",
+    "render:sample": "tsx scripts/render.ts Article2026Midterms out/sample.mp4 --frames 0-89 --scale 0.5"
   },
   "dependencies": {
     "react": "^18.3.1",

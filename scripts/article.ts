@@ -6,7 +6,7 @@
  *   npx tsx scripts/article.ts --file article.txt --title "My Article" --pipeline longform
  *
  * Outputs runs/<run-id>/script.json (+ article.json) ready for rendering:
- *   npx remotion render src/index.ts Article2026Midterms out/out.mp4 --props runs/<run-id>/script.json --audio <voiceover.wav>
+ *   npx remotion render src/index.tsx Article2026Midterms out/out.mp4 --props runs/<run-id>/script.json --audio <voiceover.wav>
  */
 
 import { articleToScript } from '../src/agents/articleAgent';
@@ -92,7 +92,7 @@ const main = async () => {
   console.log(`Run dir: ${runDir}`);
   console.log(`Scenes: ${script.scenes.length} | Duration: ${script.durationSeconds}s | Pipeline: ${pipelineType}`);
   console.log('\nRender the video:');
-  console.log(`  npx remotion render src/index.ts Article2026Midterms out/article.mp4 --props ${runDir}/script.json --audio ${runDir}/voiceover.wav`);
+  console.log(`  npx remotion render src/index.tsx Article2026Midterms out/article.mp4 --props ${runDir}/script.json --audio ${runDir}/voiceover.wav`);
   console.log(`\nPreview: npm run dev  (Remotion Studio, localhost:3000)`);
 };
 

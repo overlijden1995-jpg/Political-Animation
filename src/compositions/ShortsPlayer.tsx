@@ -193,12 +193,12 @@ const ShortsScene = (props: ShortsProps) => {
         )}
 
         {/* Captions */}
-        <Captions captions={words} time={time} window={2} fontSize={52} y={220} align="center" />
+        <Captions captions={words} time={time} window={2} fontSize={52} y={470} align="center" />
 
         {/* Page-turn transition into the scene */}
         <Transition
           type="panel"
-          progress={Math.max(0, Math.min(1, (active.start + 0.5 - time) / 0.5))}
+          progress={Math.max(0, Math.min(1, (time - active.start) / 0.5))}
           width={W}
           height={H}
         />
