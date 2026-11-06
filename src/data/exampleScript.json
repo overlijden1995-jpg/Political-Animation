@@ -1,0 +1,187 @@
+{
+  "title": "How the Electoral College Actually Works",
+  "topic": "US Politics",
+  "source": "demo",
+  "pipelines": {
+    "shorts": {
+      "aspect": "9:16",
+      "resolution": [1080, 1920],
+      "durationSeconds": 60,
+      "scenes": [
+        {
+          "id": "hook",
+          "start": 0,
+          "end": 10,
+          "label": "Hook",
+          "background": "#FFF8E1",
+          "narration": "In five American elections, the winner of the popular vote lost the presidency.",
+          "visuals": {
+            "character": { "emotion": "worried" },
+            "speech": "Wait... what?",
+            "lowerThird": { "name": "Popular Vote", "role": "Doesn't always win" },
+            "mapRegion": null
+          }
+        },
+        {
+          "id": "basics",
+          "start": 10,
+          "end": 22,
+          "label": "Basics",
+          "background": "#E3F2FD",
+          "narration": "Each state gets electoral votes equal to its senators plus its representatives.",
+          "visuals": {
+            "character": { "emotion": "neutral" },
+            "mapRegion": "west",
+            "lowerThird": { "name": "Electoral Votes", "role": "Senators + Representatives" }
+          }
+        },
+        {
+          "id": "total",
+          "start": 22,
+          "end": 32,
+          "label": "The magic number",
+          "background": "#FFF8E1",
+          "narration": "Five hundred thirty eight votes total. You need two hundred seventy to win.",
+          "visuals": {
+            "character": { "emotion": "neutral" },
+            "chart": {
+              "data": [
+                { "label": "Needed to win", "value": 270, "color": "#C93756" },
+                { "label": "Total electors", "value": 538, "color": "#0F62FE" }
+              ],
+              "maxValue": 538
+            },
+            "lowerThird": { "name": "270", "role": "Votes needed to win" }
+          }
+        },
+        {
+          "id": "winnerTakeAll",
+          "start": 32,
+          "end": 44,
+          "label": "Winner take all",
+          "background": "#E3F2FD",
+          "narration": "In most states, whoever wins the popular vote takes all of that state's electors.",
+          "visuals": {
+            "character": { "emotion": "neutral" },
+            "mapRegion": "south",
+            "lowerThird": { "name": "Winner-Take-All", "role": "48 states + DC" }
+          }
+        },
+        {
+          "id": "swing",
+          "start": 44,
+          "end": 54,
+          "label": "Swing states",
+          "background": "#FFF8E1",
+          "narration": "So candidates ignore safe states and campaign almost only in swing states.",
+          "visuals": {
+            "character": { "emotion": "shocked" },
+            "mapRegion": "midwest",
+            "speech": "Pennsylvania? Again?",
+            "lowerThird": { "name": "Swing States", "role": "Where elections are decided" }
+          }
+        },
+        {
+          "id": "outro",
+          "start": 54,
+          "end": 60,
+          "label": "Outro",
+          "background": "#F3E5F5",
+          "narration": "That is the electoral college, in sixty seconds.",
+          "visuals": {
+            "character": { "emotion": "happy" },
+            "lowerThird": { "name": "Political Animation", "role": "Subscribe for more" }
+          }
+        }
+      ]
+    },
+    "longform": {
+      "aspect": "16:9",
+      "resolution": [1920, 1080],
+      "durationSeconds": 600,
+      "scenes": [
+        {
+          "id": "intro",
+          "start": 0,
+          "end": 55,
+          "label": "Introduction",
+          "background": "#FFF8E1",
+          "narration": "Welcome to Political Animation. Today: the electoral college — the most misunderstood part of American presidential elections.",
+          "visuals": { "character": { "emotion": "neutral" }, "lowerThird": { "name": "Host", "role": "Political Animation" } }
+        },
+        {
+          "id": "history",
+          "start": 55,
+          "end": 145,
+          "label": "Origins in 1787",
+          "background": "#E3F2FD",
+          "narration": "The founders created the electoral college at the Constitutional Convention as a compromise between electing the president by Congress or by popular vote.",
+          "visuals": { "character": { "emotion": "neutral" } }
+        },
+        {
+          "id": "allocation",
+          "start": 145,
+          "end": 220,
+          "label": "How votes are allocated",
+          "background": "#FFF8E1",
+          "narration": "Each state gets electors equal to its congressional delegation: two senators, plus however many representatives it has. Washington D.C. gets three.",
+          "visuals": { "mapRegion": "west", "lowerThird": { "name": "Electoral Votes", "role": "Senators + Representatives + D.C." } }
+        },
+        {
+          "id": "winnerTakeAll",
+          "start": 220,
+          "end": 310,
+          "label": "Winner-take-all",
+          "background": "#E3F2FD",
+          "narration": "Forty-eight states and D.C. use winner-take-all: the statewide popular vote winner takes every elector. Maine and Nebraska split theirs by congressional district.",
+          "visuals": { "mapRegion": "south", "lowerThird": { "name": "Winner-Take-All", "role": "48 states + D.C." } }
+        },
+        {
+          "id": "historyCases",
+          "start": 310,
+          "end": 400,
+          "label": "When the popular vote lost",
+          "background": "#FFF8E1",
+          "narration": "It has happened five times: 1824, 1876, 1888, 2000, and 2016. In 2000, George W. Bush won the presidency with fewer votes than Al Gore.",
+          "visuals": { "character": { "emotion": "shocked" }, "chart": { "data": [ { "label": "Gore popular votes", "value": 51, "color": "#3A86FF" }, { "label": "Bush electoral votes", "value": 271, "color": "#C93756" } ], "maxValue": 100 }, "lowerThird": { "name": "2000 Election", "role": "Popular vote loser wins" } }
+        },
+        {
+          "id": "swingStates",
+          "start": 400,
+          "end": 490,
+          "label": "The swing state map",
+          "background": "#E3F2FD",
+          "narration": "Because most states are safe, campaigns focus almost entirely on a handful of swing states — Pennsylvania, Michigan, Wisconsin, Arizona, Georgia, Nevada.",
+          "visuals": { "mapRegion": "midwest", "lowerThird": { "name": "Swing States", "role": "Where campaigns spend money" } }
+        },
+        {
+          "id": "faithless",
+          "start": 490,
+          "end": 545,
+          "label": "Faithless electors",
+          "background": "#FFF8E1",
+          "narration": "Electors are pledged to a candidate, but occasionally one votes faithlessly. In 2020 the Supreme Court ruled states can punish or replace them.",
+          "visuals": { "character": { "emotion": "worried" } }
+        },
+        {
+          "id": "reform",
+          "start": 545,
+          "end": 590,
+          "label": "Reform ideas",
+          "background": "#F3E5F5",
+          "narration": "Reform proposals include the National Popular Vote Interstate Compact, or abolishing the electoral college entirely by constitutional amendment.",
+          "visuals": { "chart": { "data": [ { "label": "Keep electoral college", "value": 34, "color": "#0F62FE" }, { "label": "Move to popular vote", "value": 63, "color": "#36B37E" } ], "maxValue": 100 }, "lowerThird": { "name": "Reform", "role": "Public opinion varies by poll" } }
+        },
+        {
+          "id": "outro",
+          "start": 590,
+          "end": 600,
+          "label": "Outro",
+          "background": "#F3E5F5",
+          "narration": "That is the electoral college. Subscribe for more explainers on US politics.",
+          "visuals": { "character": { "emotion": "happy" }, "lowerThird": { "name": "Political Animation", "role": "Subscribe" } }
+        }
+      ]
+    }
+  }
+}
