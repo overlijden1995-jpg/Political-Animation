@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Composition, useCurrentFrame, interpolate, spring } from 'remotion';
+import { Composition, useCurrentFrame, interpolate } from 'remotion';
 import { secondsToFrames, useActiveScene, Scene } from '../lib/timeline';
 import { Scene as SceneComp } from '../components/Scene';
 import { Panel } from '../components/Panel';
@@ -10,11 +10,16 @@ import { LowerThird } from '../components/LowerThird';
 import { ChartBar } from '../components/ChartBar';
 import { Transition } from '../components/Transition';
 import { PALETTE, FONT } from '../theme/colors';
-import { ScalesOfJustice } from '../components/JusticeVisuals';
-import { CancerMetaphor } from '../components/JusticeVisuals';
-import { IceCreamMachine } from '../components/JusticeVisuals';
-import { LegacyContrast } from '../components/JusticeVisuals';
-import { ShieldOfPower } from '../components/JusticeVisuals';
+import {
+  ScalesOfJustice,
+  CancerMetaphor,
+  IceCreamMachine,
+  LegacyContrast,
+  ShieldOfPower,
+  PageDecorator,
+  Defs,
+  Mote,
+} from '../components/JusticeVisuals';
 
 const FPS = 30;
 const W = 1920;
@@ -239,15 +244,13 @@ const getCaptionWindow = (time: number) => {
   return { view, highlight };
 };
 
-/** Narration line that fades in word-by-word with a typewriter feel. */
+/** Narration line with word-by-word typewriter effect. */
 const NarrationLine: React.FC<{ text: string; progress: number; y: number }> = ({ text, progress, y }) => {
   const frame = useCurrentFrame();
   const words = text.split(' ');
-  // How many words have been revealed based on progress (0..1)
   const revealCount = Math.floor(progress * words.length);
   const revealed = words.slice(0, revealCount).join(' ');
   const nextWord = words[revealCount] ?? '';
-  // Partial reveal of current word for typewriter effect
   const charProgress = interpolate(frame, [0, FPS * 0.15], [0, 1]);
   const partial = nextWord.slice(0, Math.floor(charProgress * nextWord.length));
 
@@ -263,7 +266,7 @@ const NarrationLine: React.FC<{ text: string; progress: number; y: number }> = (
         color: PALETTE.ink,
         lineHeight: 1.6,
         opacity: Math.min(Math.max(progress, 0.3), 1),
-        transform: `translateY(${idleFloat(frame, 0.06, 1.2)}px)`,
+        transform: `translateY(${Math.sin(frame * 0.06) * 1.2}px)`,
       }}
     >
       {revealed}
@@ -272,7 +275,32 @@ const NarrationLine: React.FC<{ text: string; progress: number; y: number }> = (
   );
 };
 
-const idleFloat = (frame: number, speed = 0.06, amount = 1.2) => Math.sin(frame * speed) * amount;
+/** Background texture layer with grain + vignette + floating motes. */
+const AmbientBackground: React.FC<{ frame: number; seedBase: number }> = ({ frame, seedBase }) => {
+  const motes = [11, 27, 43, 59, 75, 91].map((s, i) => (
+    <Mote
+      key={i}
+      frame={frame}
+      x={120 + i * 280}
+      y={400 + (i % 3) * 120}
+      seed={seedBase + s}
+      size={2.5 + (i % 3)}
+      color={PALETTE.inkFade}
+      speed={0.04 + i * 0.008}
+    />
+  ));
+  return (
+    <div style={{ position: 'absolute', top: 0, left: 0, width: W, height: H, pointerEvents: 'none' }}>
+      <svg width={W} height={H} style={{ position: 'absolute', top: 0, left: 0 }}>
+        <Defs />
+        {/* Vignette overlay */}
+        <rect width={W} height={H} fill="url(#grad-vignette)" pointerEvents="none" />
+        {/* Floating ambient motes across the whole screen */}
+        {motes}
+      </svg>
+    </div>
+  );
+};
 
 const JusticeScene = () => {
   const frame = useCurrentFrame();
@@ -298,71 +326,75 @@ const JusticeScene = () => {
       width: 720,
       height: 520,
       opacity: visualEnter,
-      transform: `translateY(${idleFloat(frame, 0.05, 1)}px)`,
+      transform: `translateY(${Math.sin(frame * 0.05) * 1}px)`,
     } as React.CSSProperties;
+
+    const pageDeco = (
+      <PageDecorator frame={frame} x={40} y={140} w={720} h={520} seed={1000} />
+    );
 
     switch (active.id) {
       case 'divide':
         return (
           <div style={visualStyle}>
+            <PageDecorator frame={frame} x={40} y={140} w={720} h={520} seed={1001} />
             <Panel x={0} y={0} width={720} height={520} borderColor={PALETTE.inkSoft} fill={PALETTE.white} shadow>
-              <ScalesOfJustice x={160} y={100} width={400} height={340} tilt="balanced" />
+              <ScalesOfJustice x={160} y={90} width={400} height={340} tilt="balanced" />
             </Panel>
           </div>
         );
       case 'justiceSecondary':
         return (
           <div style={visualStyle}>
+            <PageDecorator frame={frame} x={40} y={140} w={720} h={520} seed={1002} />
             <Panel x={0} y={0} width={720} height={520} borderColor={PALETTE.inkSoft} fill={PALETTE.white} shadow>
-              <ShieldOfPower x={160} y={80} width={400} height={340} state="intact" />
+              <ShieldOfPower x={160} y={70} width={400} height={340} state="intact" />
             </Panel>
           </div>
         );
       case 'cancerHealthy':
         return (
           <div style={visualStyle}>
+            <PageDecorator frame={frame} x={40} y={140} w={720} h={520} seed={1003} />
             <Panel x={0} y={0} width={720} height={520} borderColor={PALETTE.inkSoft} fill={PALETTE.white} shadow>
-              <CancerMetaphor x={160} y={80} width={400} height={340} stage="healthy" />
+              <CancerMetaphor x={160} y={70} width={400} height={340} stage="healthy" />
             </Panel>
           </div>
         );
       case 'cancerTumor':
         return (
           <div style={visualStyle}>
+            <PageDecorator frame={frame} x={40} y={140} w={720} h={520} seed={1004} />
             <Panel x={0} y={0} width={720} height={520} borderColor={PALETTE.inkSoft} fill={PALETTE.white} shadow>
-              <CancerMetaphor x={160} y={80} width={400} height={340} stage="tumor" />
+              <CancerMetaphor x={160} y={70} width={400} height={340} stage="tumor" />
             </Panel>
           </div>
         );
       case 'iceCreamWorking':
         return (
           <div style={visualStyle}>
+            <PageDecorator frame={frame} x={40} y={140} w={720} h={520} seed={1005} />
             <Panel x={0} y={0} width={720} height={520} borderColor={PALETTE.inkSoft} fill={PALETTE.white} shadow>
-              <IceCreamMachine x={160} y={80} width={400} height={340} state="working" />
+              <IceCreamMachine x={160} y={70} width={400} height={340} state="working" />
             </Panel>
           </div>
         );
       case 'iceCreamBroken':
-        return (
-          <div style={visualStyle}>
-            <Panel x={0} y={0} width={720} height={520} borderColor={PALETTE.inkSoft} fill={PALETTE.white} shadow>
-              <IceCreamMachine x={160} y={80} width={400} height={340} state="broken" />
-            </Panel>
-          </div>
-        );
       case 'iceCreamFallacy':
         return (
           <div style={visualStyle}>
+            <PageDecorator frame={frame} x={40} y={140} w={720} h={520} seed={1006} />
             <Panel x={0} y={0} width={720} height={520} borderColor={PALETTE.inkSoft} fill={PALETTE.white} shadow>
-              <IceCreamMachine x={160} y={80} width={400} height={340} state="broken" />
+              <IceCreamMachine x={160} y={70} width={400} height={340} state="broken" />
             </Panel>
           </div>
         );
       case 'obamaMccain':
         return (
           <div style={visualStyle}>
+            <PageDecorator frame={frame} x={40} y={140} w={720} h={520} seed={1007} />
             <Panel x={0} y={0} width={720} height={520} borderColor={PALETTE.inkSoft} fill={PALETTE.white} shadow>
-              <LegacyContrast x={160} y={80} width={400} height={340} />
+              <LegacyContrast x={160} y={70} width={400} height={340} />
             </Panel>
           </div>
         );
@@ -370,14 +402,16 @@ const JusticeScene = () => {
       case 'trumpNotAmerica':
         return (
           <div style={visualStyle}>
+            <PageDecorator frame={frame} x={40} y={140} w={720} h={520} seed={1008} />
             <Panel x={0} y={0} width={720} height={520} borderColor={PALETTE.inkSoft} fill={PALETTE.white} shadow>
-              <ShieldOfPower x={160} y={80} width={400} height={340} state="broken" />
+              <ShieldOfPower x={160} y={70} width={400} height={340} state="broken" />
             </Panel>
           </div>
         );
       default:
         return (
           <div style={visualStyle}>
+            <PageDecorator frame={frame} x={40} y={140} w={720} h={520} seed={1009} />
             <Panel x={0} y={0} width={720} height={520} borderColor={PALETTE.inkSoft} fill={PALETTE.white} shadow>
               <Character x={360 - 130} y={260 - 180} scale={1.3} emotion="neutral" direction="right" frame={frame} />
             </Panel>
@@ -413,6 +447,9 @@ const JusticeScene = () => {
       }}
     >
       <SceneComp background={active.background} grain vignette>
+
+        {/* Ambient texture + vignette + floating motes (behind everything) */}
+        <AmbientBackground frame={frame} seedBase={2000} />
 
         {/* Top title chip: slides in from left */}
         <div
