@@ -36,13 +36,19 @@ Kurzgesagt flat design + comic strip: warm paper backgrounds (`#F7F5EE`), off-bl
 
 ```bash
 npm install
+npm run setup               # resolve ffmpeg + Chromium, writes .render-env.json
+npm run doctor              # re-check the render toolchain (no installs)
 npm run dev                 # Remotion Studio at localhost:3000
 npm run typecheck
+npm run render:sample       # 3 s smoke-test MP4 → out/sample.mp4
+npm run render:shorts       # full 9:16 short     → out/shorts.mp4
+npm run render:longform     # full 16:9 long-form → out/longform.mp4
 npm run pipeline "The electoral college explained" --pipeline shorts
 npx tsx scripts/render.ts ShortsPlayer out/shorts.mp4 --props runs/run-*/script.json --audio runs/run-*/voiceover.wav
 ```
 
 ## Notes
 
-- `remotion render` requires ffmpeg (`brew install ffmpeg` / `apt-get install ffmpeg`). Studio preview works without it.
+- **Render toolchain:** `npm run setup` (`scripts/setup.mjs`) resolves everything needed for MP4 output and caches the results in `.render-env.json` (gitignored). It reuses a system `ffmpeg` or exposes Remotion's bundled build via `node_modules/.bin`, and installs Remotion's Chrome Headless Shell — falling back to the npm-packaged `@sparticuz/chromium` when `remotion.media` is blocked. Chromium on Linux additionally needs `libnss3`/`libnspr4`; cached copies in `~/.cache/political-animation/nss-libs` are used when present. `npm run doctor` reports the same checks without changing anything.
+- `src/index.tsx` is the single Remotion entry point: `registerRoot()` may only be called once, so all four `<Composition />` wrappers are mounted from one root component.
 - Fonts: components reference "Comic Neue", "Caveat", "Patrick Hand" — add them via Google Fonts in your HTML/OS for the full comic look; system fallbacks are used otherwise.

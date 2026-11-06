@@ -1,4 +1,22 @@
-import { interpolate, spring } from 'remotion';
+import { interpolate as remotionInterpolate, spring } from 'remotion';
+
+/**
+ * Remotion's interpolate() extrapolates past its input range by default, which
+ * makes one-off entrance animations (fade-in, slide-up) keep drifting once
+ * their frame range has passed — after a few seconds the whole scene slides off
+ * screen. Clamp on both ends instead; that is what timelines actually want.
+ */
+export const interpolate = (
+  input: number,
+  inputRange: number[],
+  outputRange: number[],
+  options?: Parameters<typeof remotionInterpolate>[3],
+): number =>
+  remotionInterpolate(input, inputRange, outputRange, {
+    extrapolateLeft: 'clamp',
+    extrapolateRight: 'clamp',
+    ...options,
+  });
 
 /**
  * Remotion's interpolate() keyed on a 0..1 progress value instead of a frame

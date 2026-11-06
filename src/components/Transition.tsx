@@ -35,8 +35,9 @@ export const Transition: React.FC<TransitionProps> = ({
   }
 
   if (type === 'panel') {
-    // A hand-drawn panel slides up from the bottom, covering the screen
-    const panelH = height * (1 - p) + 60;
+    // A hand-drawn panel slides down off the bottom of the screen, revealing
+    // the scene behind it (gone completely once progress reaches 1).
+    const panelH = (height + 60) * (1 - p);
     return (
       <div
         style={{

@@ -25,3 +25,7 @@ assets/generated/
 assets/manifest-*.json
 out/
 dist/
+
+# Local render toolchain — written by `npm run setup` (paths are machine specific)
+.render-env.json
+.tools/

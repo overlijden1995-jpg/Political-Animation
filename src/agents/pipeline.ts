@@ -16,7 +16,7 @@ const RUNS_DIR = path.join(process.cwd(), 'runs');
  *
  * Each step writes a manifest under runs/<runId>/. Run with --skipRender to
  * stop before rendering, then render manually:
- *   npx remotion render src/index.ts <CompositionId> out/<runId>.mp4 --props runs/<runId>/script.json
+ *   npx remotion render src/index.tsx <CompositionId> out/<runId>.mp4 --props runs/<runId>/script.json
  */
 
 export const runPipeline = async (
@@ -72,7 +72,7 @@ export const runPipeline = async (
   console.log('╚════════════════════════════════════════════════╝');
   console.log(`Run dir: ${runDir}`);
   console.log('\nNext — render the video:');
-  console.log(`  npx remotion render src/index.ts ${compId} out/${runId}.mp4 --props "${path.join(runDir, 'script.json')}"`);
+  console.log(`  npx remotion render src/index.tsx ${compId} out/${runId}.mp4 --props "${path.join(runDir, 'script.json')}"`);
   if (fs.existsSync(audioPath)) {
     console.log(`  # Add audio with: --audio "${audioPath}"`);
   }

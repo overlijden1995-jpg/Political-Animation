@@ -40,9 +40,16 @@ export const Paper: React.FC<PaperProps> = ({
         >
           <defs>
             <filter id="paper-grain" x="0%" y="0%" width="100%" height="100%">
-              <feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="3" stitchTiles="stitch" />
-              <feColorMatrix type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 0.06 0" />
-              <feBlend mode="multiply" in2="SourceGraphic" />
+              {/* Noise → very low-alpha ink speckle. Do NOT blend with the
+                  source graphic: the rect is unfilled, so a multiply blend
+                  resolves to opaque black and paints over the paper. */}
+              <feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="3" stitchTiles="stitch" result="noise" />
+              <feColorMatrix
+                in="noise"
+                type="matrix"
+                values="0 0 0 0 0.12  0 0 0 0 0.10  0 0 0 0 0.08  0 0 0 0.06 0"
+                result="speckle"
+              />
             </filter>
             <filter id="deckle" x="-5%" y="-5%" width="110%" height="110%">
               <feTurbulence type="turbulence" baseFrequency="0.015" numOctaves="2" result="noise" />

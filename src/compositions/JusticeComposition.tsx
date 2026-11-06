@@ -1,5 +1,6 @@
 import * as React from 'react';
-import { Composition, useCurrentFrame, interpolate } from 'remotion';
+import { Composition, useCurrentFrame } from 'remotion';
+import { interpolate } from '../lib/interpolate';
 import { secondsToFrames, useActiveScene, Scene } from '../lib/timeline';
 import { Scene as SceneComp } from '../components/Scene';
 import { Panel } from '../components/Panel';
@@ -505,12 +506,12 @@ const JusticeScene = () => {
         )}
 
         {/* Captions: word-by-word highlight */}
-        <Captions captions={view} time={time} window={3} fontSize={44} y={120} align="center" highlightWord={highlight} />
+        <Captions captions={view} time={time} window={3} fontSize={44} y={260} align="center" highlightWord={highlight} />
 
         {/* Scene transition: page-turn panel */}
         <Transition
           type="panel"
-          progress={Math.max(0, Math.min(1, (active.start + 0.7 - time) / 0.7))}
+          progress={Math.max(0, Math.min(1, (time - active.start) / 0.7))}
           width={W}
           height={H}
         />

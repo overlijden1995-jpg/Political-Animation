@@ -297,10 +297,10 @@ const ArticleScene = (props: ArticleProps) => {
         )}
 
         {/* Captions */}
-        <Captions captions={view} time={time} window={3} fontSize={44} y={120} align="center" highlightWord={highlight} />
+        <Captions captions={view} time={time} window={3} fontSize={44} y={260} align="center" highlightWord={highlight} />
 
         {/* Scene transition */}
-        <Transition type="panel" progress={Math.max(0, Math.min(1, (active.start + 0.6 - time) / 0.6))} width={W} height={H} />
+        <Transition type="panel" progress={Math.max(0, Math.min(1, (time - active.start) / 0.6))} width={W} height={H} />
 
       </SceneComp>
     </div>
