@@ -35,5 +35,6 @@ __pycache__/
 !public/bad-actors/**/photos/*.jpeg
 !public/bad-actors/**/photos/*.png
 !public/bad-actors/appearances/*.png
+!public/bad-actors/style-concepts/*.png
 !public/bad-actors/fonts/*.ttf
 !public/bad-actors/**/audio/episode-master.mp3
