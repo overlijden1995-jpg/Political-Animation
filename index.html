@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="color-scheme" content="dark" />
+    <title>Bad Actors — Episode 01 · Slide Deck</title>
+    <style>
+      /* Projector black. No scrollbars, no page chrome, no bounce. */
+      html,
+      body,
+      #root {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        background: #0a0a0b;
+        overflow: hidden;
+        -webkit-text-size-adjust: 100%;
+      }
+      #boot {
+        position: fixed;
+        inset: 0;
+        display: grid;
+        place-items: center;
+        font: 500 12px/1 ui-monospace, Menlo, monospace;
+        letter-spacing: 0.24em;
+        text-transform: uppercase;
+        color: rgba(246, 244, 238, 0.45);
+      }
+    </style>
+  </head>
+  <body>
+    <div id="root"><div id="boot">Setting type…</div></div>
+    <script type="module" src="/deck/main.tsx"></script>
+  </body>
+</html>

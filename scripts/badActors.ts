@@ -18,6 +18,9 @@ import {
   type PoliticianCorpus,
 } from '../src/agents/badActorsAgent';
 import { BAD_ACTORS_EP01_JD_VANCE } from '../src/data/badActorsJDVance';
+import { compileDeck } from '../src/slides/deck';
+import { auditDeck, summarize } from '../src/agents/slideQualityAgent';
+import { deckMeasure } from './lib/deckFonts';
 
 const args = process.argv.slice(2);
 const getFlag = (name: string): string | undefined => {
@@ -51,6 +54,50 @@ console.log('\nTop Buzzword Clusters (per 1,000 words):');
 for (const bw of report.buzzwords) {
   console.log(`  • ${bw.label.padEnd(36)} ${String(bw.perThousandWords).padStart(4)} / 1k  (${bw.hits} hits)`);
 }
+// Compile the deck and gate it on legibility before anything is rendered.
+const deck = compileDeck(BAD_ACTORS_EP01_JD_VANCE);
+const deckPath = path.join(runDir, 'deck.json');
+fs.writeFileSync(
+  deckPath,
+  JSON.stringify(
+    {
+      stage: { width: 1920, height: 1080 },
+      durationSeconds: deck.duration,
+      pages: deck.pages.map((page) => ({
+        id: page.id,
+        kind: page.kind,
+        folio: page.folio,
+        start: Number(page.start.toFixed(3)),
+        end: Number(page.end.toFixed(3)),
+        section: page.section.id,
+        layout: page.kind === 'content' ? page.slide.layout : undefined,
+        body: page.kind === 'content' ? page.body : undefined,
+      })),
+    },
+    null,
+    2,
+  ),
+);
+
+const findings = auditDeck(deck, deckMeasure);
+const { errors, warnings } = summarize(findings);
+const problems = findings.filter((f) => f.level !== 'note');
+
+console.log(`\nDeck: ${deck.pages.length} pages / ${deck.duration}s (${deck.pages.length} folios)`);
+if (problems.length) {
+  console.log('Legibility gate:');
+  for (const finding of problems) {
+    console.log(`  ${finding.level === 'error' ? 'FAIL' : 'WARN'}  ${finding.page.padEnd(24)} ${finding.message}`);
+  }
+}
+console.log(`Legibility gate → ${errors} error(s), ${warnings} warning(s)`);
+
 console.log(`\nManifests written to: ${runDir}`);
 console.log(`  - ${reportPath}`);
 console.log(`  - ${episodePath}`);
+console.log(`  - ${deckPath}`);
+console.log('\nNext:');
+console.log('  npm run deck            # project the deck in the browser');
+console.log('  npm run render:deck     # encode a crisp 2× MP4');
+
+if (errors > 0) process.exitCode = 1;

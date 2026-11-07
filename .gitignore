@@ -38,3 +38,6 @@ __pycache__/
 !public/bad-actors/style-concepts/*.png
 !public/bad-actors/fonts/*.ttf
 !public/bad-actors/**/audio/episode-master.mp3
+
+# Presentation player build
+dist-deck/
