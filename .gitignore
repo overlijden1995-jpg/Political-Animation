@@ -21,7 +21,11 @@ pnpm-lock.yaml
 
 # Pipeline artifacts (generated per run — review locally, do not commit)
 runs/
+episodes/
 assets/generated/
 assets/manifest-*.json
 out/
 dist/
+.venv/
+__pycache__/
+*.pyc

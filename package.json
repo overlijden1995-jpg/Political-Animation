@@ -11,6 +11,7 @@
     "lint": "eslint src scripts || true",
     "render:shorts": "tsx scripts/render.ts ShortsPlayer out/shorts.mp4",
     "render:longform": "tsx scripts/render.ts LongFormPlayer out/longform.mp4",
+    "bad-actors": "tsx scripts/badActors.ts",
     "pipeline": "tsx src/agents/pipeline.ts"
   },
   "dependencies": {
