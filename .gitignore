@@ -29,9 +29,11 @@ dist/
 __pycache__/
 *.pyc
 
-# Tracked Bad Actors series photos, master audio, and compiled episode MP4s
+# Tracked Bad Actors series photos, fonts, appearance boards, master audio, and compiled MP4s
 !episodes/*.mp4
 !public/bad-actors/**/photos/*.jpg
 !public/bad-actors/**/photos/*.jpeg
 !public/bad-actors/**/photos/*.png
+!public/bad-actors/appearances/*.png
+!public/bad-actors/fonts/*.ttf
 !public/bad-actors/**/audio/episode-master.mp3
