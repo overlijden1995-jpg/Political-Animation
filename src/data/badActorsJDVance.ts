@@ -30,7 +30,7 @@ export const BAD_ACTORS_EP01_JD_VANCE: BadActorsEpisode = {
       start: 0.0,
       end: 30.0,
       speechStart: 0.65,
-      speechEnd: 29.195,
+      speechEnd: 29.19,
       headline: 'James David Vance — Quick Dossier',
       subheadline: 'From Middletown & Yale Law to Silicon Valley & the Vice Presidency',
       narration:
@@ -73,9 +73,9 @@ export const BAD_ACTORS_EP01_JD_VANCE: BadActorsEpisode = {
       id: 'slide-02-worldview',
       sectionId: 'ideology',
       start: 30.0,
-      end: 61.981,
+      end: 62.107,
       speechStart: 30.65,
-      speechEnd: 61.581,
+      speechEnd: 61.707,
       headline: 'The Postliberal "Anti-Regime" Worldview',
       subheadline: 'Blood-and-Soil Nationhood, Pronatalism & Executive Centralization',
       narration:
@@ -113,10 +113,10 @@ export const BAD_ACTORS_EP01_JD_VANCE: BadActorsEpisode = {
     {
       id: 'slide-03-contradictions',
       sectionId: 'ideology',
-      start: 61.981,
+      start: 62.107,
       end: 90.0,
-      speechStart: 62.381,
-      speechEnd: 89.239,
+      speechStart: 62.507,
+      speechEnd: 89.214,
       headline: 'Ideological Whiplash: The Contradiction Matrix',
       subheadline: 'Total Inversion Between 2016 Commentator Vance & 2021–2026 MAGA Vance',
       narration:
@@ -165,9 +165,9 @@ export const BAD_ACTORS_EP01_JD_VANCE: BadActorsEpisode = {
       id: 'slide-04-buzzwords',
       sectionId: 'vocabulary',
       start: 90.0,
-      end: 118.953,
+      end: 118.203,
       speechStart: 90.65,
-      speechEnd: 118.553,
+      speechEnd: 117.803,
       headline: 'Transcript Scan: Top Buzzword Clusters',
       subheadline: 'Frequency per 1,000 Words Across RNC, CBS Debate, Munich & Media Q&As (n = 2,951 words)',
       narration:
@@ -227,10 +227,10 @@ export const BAD_ACTORS_EP01_JD_VANCE: BadActorsEpisode = {
     {
       id: 'slide-05-semantics',
       sectionId: 'vocabulary',
-      start: 118.953,
+      start: 118.203,
       end: 150.0,
-      speechStart: 119.353,
-      speechEnd: 149.22,
+      speechStart: 118.603,
+      speechEnd: 149.238,
       headline: 'How Vance’s Code Words Operate',
       subheadline: 'Epistemic Shortcuts & Neighborly Softeners Masking Hard-Right Terms',
       narration:
@@ -273,9 +273,9 @@ export const BAD_ACTORS_EP01_JD_VANCE: BadActorsEpisode = {
       id: 'slide-06-appeals',
       sectionId: 'rhetoric',
       start: 150.0,
-      end: 192.122,
+      end: 189.674,
       speechStart: 150.65,
-      speechEnd: 191.722,
+      speechEnd: 189.274,
       headline: 'Appeal Architecture: The Biographical Shield',
       subheadline: 'Converting Personal Trauma Into Moral Immunity Before Pivoting to a Scapegoat',
       narration:
@@ -308,10 +308,10 @@ export const BAD_ACTORS_EP01_JD_VANCE: BadActorsEpisode = {
     {
       id: 'slide-07-specificity',
       sectionId: 'rhetoric',
-      start: 192.122,
-      end: 231.58,
-      speechStart: 192.522,
-      speechEnd: 231.18,
+      start: 189.674,
+      end: 230.199,
+      speechStart: 190.074,
+      speechEnd: 229.799,
       headline: 'Specificity vs. Vagueness Audit',
       subheadline: '92.6% Sweeping Assertions — And Why His Rare Numbers Collapse Under Fact-Check',
       narration:
@@ -358,10 +358,10 @@ export const BAD_ACTORS_EP01_JD_VANCE: BadActorsEpisode = {
     {
       id: 'slide-08-cadence',
       sectionId: 'rhetoric',
-      start: 231.58,
+      start: 230.199,
       end: 270.0,
-      speechStart: 231.98,
-      speechEnd: 269.156,
+      speechStart: 230.599,
+      speechEnd: 269.234,
       headline: 'Yale Law Cadence & Saying the Quiet Part Out Loud',
       subheadline: 'Procedural Aggression in Q&As — And Admitting He Will "Create Stories"',
       narration:
@@ -399,9 +399,9 @@ export const BAD_ACTORS_EP01_JD_VANCE: BadActorsEpisode = {
       id: 'slide-09-record',
       sectionId: 'conclusion',
       start: 270.0,
-      end: 312.004,
+      end: 312.397,
       speechStart: 270.65,
-      speechEnd: 311.387,
+      speechEnd: 311.16,
       headline: 'Record Audit: Populist Talk vs. Elite Walk',
       subheadline: 'Senate Roll-Call Votes, Donor Base & 8 Vice Presidential Tie-Breakers (2023–2026)',
       narration:
@@ -444,10 +444,10 @@ export const BAD_ACTORS_EP01_JD_VANCE: BadActorsEpisode = {
     {
       id: 'slide-10-verdict',
       sectionId: 'conclusion',
-      start: 312.004,
+      start: 312.397,
       end: 360.0,
-      speechStart: 312.622,
-      speechEnd: 358.794,
+      speechStart: 313.633,
+      speechEnd: 357.782,
       headline: 'Final Verdict: The Translator as Chameleon',
       subheadline: 'Why J.D. Vance Is the Archetypal Case Study in Political Pretension',
       narration:

@@ -7,18 +7,18 @@
       "start": 0.0,
       "end": 30.0,
       "duration": 30.0,
-      "tempoApplied": 1.1502,
+      "tempoApplied": 1.0522,
       "slides": [
         {
           "slideId": "slide-01-bio",
           "sectionId": "bio",
           "clipFile": "clip-01-bio.wav",
-          "tempoApplied": 1.1502,
+          "tempoApplied": 1.0522,
           "slideStart": 0.0,
           "slideEnd": 30.0,
           "speechStart": 0.65,
-          "speechEnd": 29.195,
-          "speechDuration": 28.545
+          "speechEnd": 29.19,
+          "speechDuration": 28.54
         }
       ]
     },
@@ -28,29 +28,29 @@
       "start": 30.0,
       "end": 90.0,
       "duration": 60.0,
-      "tempoApplied": 1.1379,
+      "tempoApplied": 1.1212,
       "slides": [
         {
           "slideId": "slide-02-worldview",
           "sectionId": "ideology",
           "clipFile": "clip-02-ideology-a.wav",
-          "tempoApplied": 1.1379,
+          "tempoApplied": 1.1212,
           "slideStart": 30.0,
-          "slideEnd": 61.981,
+          "slideEnd": 62.107,
           "speechStart": 30.65,
-          "speechEnd": 61.581,
-          "speechDuration": 30.931
+          "speechEnd": 61.707,
+          "speechDuration": 31.057
         },
         {
           "slideId": "slide-03-contradictions",
           "sectionId": "ideology",
           "clipFile": "clip-03-ideology-b.wav",
-          "tempoApplied": 1.1379,
-          "slideStart": 61.981,
+          "tempoApplied": 1.1212,
+          "slideStart": 62.107,
           "slideEnd": 90.0,
-          "speechStart": 62.381,
-          "speechEnd": 89.239,
-          "speechDuration": 26.858
+          "speechStart": 62.507,
+          "speechEnd": 89.214,
+          "speechDuration": 26.707
         }
       ]
     },
@@ -60,29 +60,29 @@
       "start": 90.0,
       "end": 150.0,
       "duration": 60.0,
-      "tempoApplied": 1.0748,
+      "tempoApplied": 1.1311,
       "slides": [
         {
           "slideId": "slide-04-buzzwords",
           "sectionId": "vocabulary",
           "clipFile": "clip-04-vocab-a.wav",
-          "tempoApplied": 1.0748,
+          "tempoApplied": 1.1311,
           "slideStart": 90.0,
-          "slideEnd": 118.953,
+          "slideEnd": 118.203,
           "speechStart": 90.65,
-          "speechEnd": 118.553,
-          "speechDuration": 27.903
+          "speechEnd": 117.803,
+          "speechDuration": 27.153
         },
         {
           "slideId": "slide-05-semantics",
           "sectionId": "vocabulary",
           "clipFile": "clip-05-vocab-b.wav",
-          "tempoApplied": 1.0748,
-          "slideStart": 118.953,
+          "tempoApplied": 1.1311,
+          "slideStart": 118.203,
           "slideEnd": 150.0,
-          "speechStart": 119.353,
-          "speechEnd": 149.22,
-          "speechDuration": 29.867
+          "speechStart": 118.603,
+          "speechEnd": 149.238,
+          "speechDuration": 30.635
         }
       ]
     },
@@ -92,40 +92,40 @@
       "start": 150.0,
       "end": 270.0,
       "duration": 120.0,
-      "tempoApplied": 1.0001,
+      "tempoApplied": 1.0237,
       "slides": [
         {
           "slideId": "slide-06-appeals",
           "sectionId": "rhetoric",
           "clipFile": "clip-06-rhetoric-a.wav",
-          "tempoApplied": 1.0001,
+          "tempoApplied": 1.0237,
           "slideStart": 150.0,
-          "slideEnd": 192.122,
+          "slideEnd": 189.674,
           "speechStart": 150.65,
-          "speechEnd": 191.722,
-          "speechDuration": 41.072
+          "speechEnd": 189.274,
+          "speechDuration": 38.624
         },
         {
           "slideId": "slide-07-specificity",
           "sectionId": "rhetoric",
           "clipFile": "clip-07-rhetoric-b.wav",
-          "tempoApplied": 1.0001,
-          "slideStart": 192.122,
-          "slideEnd": 231.58,
-          "speechStart": 192.522,
-          "speechEnd": 231.18,
-          "speechDuration": 38.658
+          "tempoApplied": 1.0237,
+          "slideStart": 189.674,
+          "slideEnd": 230.199,
+          "speechStart": 190.074,
+          "speechEnd": 229.799,
+          "speechDuration": 39.726
         },
         {
           "slideId": "slide-08-cadence",
           "sectionId": "rhetoric",
           "clipFile": "clip-08-rhetoric-c.wav",
-          "tempoApplied": 1.0001,
-          "slideStart": 231.58,
+          "tempoApplied": 1.0237,
+          "slideStart": 230.199,
           "slideEnd": 270.0,
-          "speechStart": 231.98,
-          "speechEnd": 269.156,
-          "speechDuration": 37.176
+          "speechStart": 230.599,
+          "speechEnd": 269.234,
+          "speechDuration": 38.634
         }
       ]
     },
@@ -143,21 +143,21 @@
           "clipFile": "clip-09-conclusion-a.wav",
           "tempoApplied": 1.0,
           "slideStart": 270.0,
-          "slideEnd": 312.004,
+          "slideEnd": 312.397,
           "speechStart": 270.65,
-          "speechEnd": 311.387,
-          "speechDuration": 40.737
+          "speechEnd": 311.16,
+          "speechDuration": 40.51
         },
         {
           "slideId": "slide-10-verdict",
           "sectionId": "conclusion",
           "clipFile": "clip-10-conclusion-b.wav",
           "tempoApplied": 1.0,
-          "slideStart": 312.004,
+          "slideStart": 312.397,
           "slideEnd": 360.0,
-          "speechStart": 312.622,
-          "speechEnd": 358.794,
-          "speechDuration": 46.173
+          "speechStart": 313.633,
+          "speechEnd": 357.782,
+          "speechDuration": 44.149
         }
       ]
     }
@@ -167,89 +167,89 @@
       "slideId": "slide-01-bio",
       "sectionId": "bio",
       "clipFile": "clip-01-bio.wav",
-      "tempoApplied": 1.1502,
+      "tempoApplied": 1.0522,
       "slideStart": 0.0,
       "slideEnd": 30.0,
       "speechStart": 0.65,
-      "speechEnd": 29.195,
-      "speechDuration": 28.545
+      "speechEnd": 29.19,
+      "speechDuration": 28.54
     },
     {
       "slideId": "slide-02-worldview",
       "sectionId": "ideology",
       "clipFile": "clip-02-ideology-a.wav",
-      "tempoApplied": 1.1379,
+      "tempoApplied": 1.1212,
       "slideStart": 30.0,
-      "slideEnd": 61.981,
+      "slideEnd": 62.107,
       "speechStart": 30.65,
-      "speechEnd": 61.581,
-      "speechDuration": 30.931
+      "speechEnd": 61.707,
+      "speechDuration": 31.057
     },
     {
       "slideId": "slide-03-contradictions",
       "sectionId": "ideology",
       "clipFile": "clip-03-ideology-b.wav",
-      "tempoApplied": 1.1379,
-      "slideStart": 61.981,
+      "tempoApplied": 1.1212,
+      "slideStart": 62.107,
       "slideEnd": 90.0,
-      "speechStart": 62.381,
-      "speechEnd": 89.239,
-      "speechDuration": 26.858
+      "speechStart": 62.507,
+      "speechEnd": 89.214,
+      "speechDuration": 26.707
     },
     {
       "slideId": "slide-04-buzzwords",
       "sectionId": "vocabulary",
       "clipFile": "clip-04-vocab-a.wav",
-      "tempoApplied": 1.0748,
+      "tempoApplied": 1.1311,
       "slideStart": 90.0,
-      "slideEnd": 118.953,
+      "slideEnd": 118.203,
       "speechStart": 90.65,
-      "speechEnd": 118.553,
-      "speechDuration": 27.903
+      "speechEnd": 117.803,
+      "speechDuration": 27.153
     },
     {
       "slideId": "slide-05-semantics",
       "sectionId": "vocabulary",
       "clipFile": "clip-05-vocab-b.wav",
-      "tempoApplied": 1.0748,
-      "slideStart": 118.953,
+      "tempoApplied": 1.1311,
+      "slideStart": 118.203,
       "slideEnd": 150.0,
-      "speechStart": 119.353,
-      "speechEnd": 149.22,
-      "speechDuration": 29.867
+      "speechStart": 118.603,
+      "speechEnd": 149.238,
+      "speechDuration": 30.635
     },
     {
       "slideId": "slide-06-appeals",
       "sectionId": "rhetoric",
       "clipFile": "clip-06-rhetoric-a.wav",
-      "tempoApplied": 1.0001,
+      "tempoApplied": 1.0237,
       "slideStart": 150.0,
-      "slideEnd": 192.122,
+      "slideEnd": 189.674,
       "speechStart": 150.65,
-      "speechEnd": 191.722,
-      "speechDuration": 41.072
+      "speechEnd": 189.274,
+      "speechDuration": 38.624
     },
     {
       "slideId": "slide-07-specificity",
       "sectionId": "rhetoric",
       "clipFile": "clip-07-rhetoric-b.wav",
-      "tempoApplied": 1.0001,
-      "slideStart": 192.122,
-      "slideEnd": 231.58,
-      "speechStart": 192.522,
-      "speechEnd": 231.18,
-      "speechDuration": 38.658
+      "tempoApplied": 1.0237,
+      "slideStart": 189.674,
+      "slideEnd": 230.199,
+      "speechStart": 190.074,
+      "speechEnd": 229.799,
+      "speechDuration": 39.726
     },
     {
       "slideId": "slide-08-cadence",
       "sectionId": "rhetoric",
       "clipFile": "clip-08-rhetoric-c.wav",
-      "tempoApplied": 1.0001,
-      "slideStart": 231.58,
+      "tempoApplied": 1.0237,
+      "slideStart": 230.199,
       "slideEnd": 270.0,
-      "speechStart": 231.98,
-      "speechEnd": 269.156,
-      "speechDuration": 37.176
+      "speechStart": 230.599,
+      "speechEnd": 269.234,
+      "speechDuration": 38.634
     },
     {
       "slideId": "slide-09-record",
@@ -257,21 +257,21 @@
       "clipFile": "clip-09-conclusion-a.wav",
       "tempoApplied": 1.0,
       "slideStart": 270.0,
-      "slideEnd": 312.004,
+      "slideEnd": 312.397,
       "speechStart": 270.65,
-      "speechEnd": 311.387,
-      "speechDuration": 40.737
+      "speechEnd": 311.16,
+      "speechDuration": 40.51
     },
     {
       "slideId": "slide-10-verdict",
       "sectionId": "conclusion",
       "clipFile": "clip-10-conclusion-b.wav",
       "tempoApplied": 1.0,
-      "slideStart": 312.004,
+      "slideStart": 312.397,
       "slideEnd": 360.0,
-      "speechStart": 312.622,
-      "speechEnd": 358.794,
-      "speechDuration": 46.173
+      "speechStart": 313.633,
+      "speechEnd": 357.782,
+      "speechDuration": 44.149
     }
   ]
 }
