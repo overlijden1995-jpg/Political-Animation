@@ -21,7 +21,6 @@ pnpm-lock.yaml
 
 # Pipeline artifacts (generated per run — review locally, do not commit)
 runs/
-episodes/
 assets/generated/
 assets/manifest-*.json
 out/
@@ -29,3 +28,13 @@ dist/
 .venv/
 __pycache__/
 *.pyc
+
+# Tracked Bad Actors series photos, fonts, appearance boards, master audio, and compiled MP4s
+!episodes/*.mp4
+!public/bad-actors/**/photos/*.jpg
+!public/bad-actors/**/photos/*.jpeg
+!public/bad-actors/**/photos/*.png
+!public/bad-actors/appearances/*.png
+!public/bad-actors/style-concepts/*.png
+!public/bad-actors/fonts/*.ttf
+!public/bad-actors/**/audio/episode-master.mp3

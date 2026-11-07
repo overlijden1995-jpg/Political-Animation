@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { registerRoot } from 'remotion';
+import { BadActorsLookbook } from './compositions/BadActorsLookbook';
 import { BadActorsJDVance } from './compositions/BadActorsEpisode';
 import { ShortsPlayer } from './compositions/ShortsPlayer';
 import { LongFormPlayer } from './compositions/LongFormPlayer';
@@ -10,6 +11,7 @@ const RemotionRoot: React.FC = () =>
   React.createElement(
     React.Fragment,
     null,
+    React.createElement(BadActorsLookbook),
     React.createElement(BadActorsJDVance),
     React.createElement(ShortsPlayer),
     React.createElement(LongFormPlayer),
