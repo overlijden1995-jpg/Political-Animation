@@ -1,0 +1,216 @@
+:root {
+  --paper: #f6f4ee;
+  --ink: #0a0a0b;
+  --vermilion: #c0241a;
+  --chrome: rgba(246, 244, 238, 0.52);
+  --chrome-strong: rgba(246, 244, 238, 0.92);
+  --hair: rgba(246, 244, 238, 0.14);
+  --mono: 'IBM Plex Mono', ui-monospace, 'SFMono-Regular', Menlo, monospace;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  color: var(--paper);
+  font-family: var(--mono);
+  cursor: default;
+  user-select: none;
+}
+
+.player {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  background: var(--ink);
+}
+
+.player.is-idle {
+  cursor: none;
+}
+
+/* ------------------------------------------------------------------ stage */
+
+.player__stage-area {
+  position: relative;
+  flex: 1 1 auto;
+  min-height: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px 16px 0;
+}
+
+.player__stage {
+  position: relative;
+  /* Never let flex shrink the stage: it is a fixed 16:9 surface that gets
+     scaled, exactly like a projector throwing onto a wall. */
+  flex: 0 0 auto;
+  width: 1920px;
+  height: 1080px;
+  transform-origin: center center;
+  background: var(--paper);
+  box-shadow: 0 0 0 1px rgba(246, 244, 238, 0.06);
+}
+
+.player__hit {
+  position: absolute;
+  inset: 0;
+  z-index: 5;
+  cursor: pointer;
+}
+
+.player__hint {
+  position: absolute;
+  left: 50%;
+  bottom: 18px;
+  transform: translateX(-50%);
+  z-index: 6;
+  font-size: 11px;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: rgba(10, 10, 11, 0.55);
+  background: rgba(246, 244, 238, 0.82);
+  padding: 7px 14px;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+  white-space: nowrap;
+}
+
+.player__hint.is-visible {
+  opacity: 1;
+  animation: hint-pulse 2.4s ease-in-out infinite;
+}
+
+@keyframes hint-pulse {
+  0%, 100% { opacity: 0.55; }
+  50% { opacity: 1; }
+}
+
+/* ----------------------------------------------------------------- chrome */
+
+.player__chrome {
+  flex: 0 0 64px;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  padding: 0 24px;
+  border-top: 1px solid var(--hair);
+  opacity: 1;
+  transition: opacity 0.35s ease;
+}
+
+.player.is-idle .player__chrome {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.player__brand {
+  font-size: 10px;
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+  color: var(--chrome);
+  white-space: nowrap;
+}
+
+.player__brand strong {
+  color: var(--vermilion);
+  font-weight: 700;
+}
+
+.player__now {
+  flex: 1 1 auto;
+  min-width: 0;
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--chrome);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.player__controls {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+
+.player__control {
+  all: unset;
+  cursor: pointer;
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--chrome);
+  padding: 8px 10px;
+  border-bottom: 1px solid transparent;
+  transition: color 0.2s ease, border-color 0.2s ease;
+  white-space: nowrap;
+}
+
+.player__control:hover {
+  color: var(--chrome-strong);
+  border-bottom-color: var(--vermilion);
+}
+
+.player__control:focus-visible {
+  color: var(--chrome-strong);
+  border-bottom-color: var(--chrome-strong);
+}
+
+.player__counter {
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  color: var(--chrome);
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+}
+
+.player__counter b {
+  color: var(--chrome-strong);
+  font-weight: 700;
+}
+
+/* ---------------------------------------------------------------- foot rail */
+
+.player__rail {
+  flex: 0 0 2px;
+  position: relative;
+  background: rgba(246, 244, 238, 0.1);
+}
+
+.player__rail-fill {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  background: var(--vermilion);
+}
+
+.player__rail-marks {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  pointer-events: none;
+}
+
+.player__rail-mark {
+  height: 100%;
+  border-right: 1px solid rgba(10, 10, 11, 0.55);
+}
+
+@media (max-width: 720px) {
+  .player__now,
+  .player__brand span {
+    display: none;
+  }
+  .player__chrome {
+    gap: 12px;
+    padding: 0 12px;
+  }
+}

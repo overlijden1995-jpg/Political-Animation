@@ -2,9 +2,12 @@ import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 import path from 'path';
 
-// Remotion Studio is powered by Vite under the hood. This config lets the
-// `remotion studio` dev server resolve the workspace aliases and allows the
-// Arena live-preview proxy to reach it from a foreign origin.
+// Two front doors share this config:
+//   • `npm run deck`  → the presentation player in `deck/` (repo-root index.html)
+//   • Remotion Studio → its own bundler reads `resolve.alias` from here
+//
+// Everything is served from the repo root so `public/` (fonts, photos, audio)
+// resolves identically in the player and in a Remotion render.
 export default defineConfig({
   plugins: [react()],
   resolve: {
@@ -18,8 +21,11 @@ export default defineConfig({
     allowedHosts: true,
     strictPort: true,
     watch: {
-      // Ignore generated asset manifests and render outputs
-      ignored: ['**/out/**', '**/assets/generated/**', '**/node_modules/**'],
+      ignored: ['**/out/**', '**/episodes/**', '**/assets/generated/**', '**/node_modules/**'],
     },
+  },
+  build: {
+    outDir: 'dist-deck',
+    target: 'es2020',
   },
 });

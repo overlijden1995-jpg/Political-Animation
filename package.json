@@ -4,13 +4,18 @@
   "private": true,
   "description": "Multi-step production engine for animated US politics videos. Remotion + Agentic AI. Kurzgesagt-inspired comic/hand-drawn style. Two pipelines: YouTube Shorts (9:16, <60s) and long-form (16:9, 5-10 min).",
   "scripts": {
-    "dev": "remotion studio src/index.ts",
+    "dev": "vite --host --port 3000",
+    "deck": "vite --host --port 3000",
     "studio": "remotion studio src/index.ts",
     "build": "remotion bundle",
+    "build:deck": "vite build",
     "typecheck": "tsc --noEmit",
-    "lint": "eslint src scripts || true",
+    "lint": "eslint src scripts deck || true",
+    "deck:audit": "tsx scripts/deck_audit.ts",
+    "deck:still": "tsx scripts/deck_still.ts",
     "render:shorts": "tsx scripts/render.ts ShortsPlayer out/shorts.mp4",
     "render:longform": "tsx scripts/render.ts LongFormPlayer out/longform.mp4",
+    "render:deck": "tsx scripts/render_deck.ts",
     "bad-actors": "tsx scripts/badActors.ts",
     "pipeline": "tsx src/agents/pipeline.ts"
   },
@@ -22,10 +27,14 @@
   "devDependencies": {
     "@remotion/cli": "^4.0.180",
     "@remotion/renderer": "^4.0.180",
+    "@resvg/resvg-js": "^2.6.2",
     "@types/react": "^18.3.3",
     "@types/react-dom": "^18.3.0",
-    "typescript": "^5.6.3",
+    "@vitejs/plugin-react": "^4.3.4",
+    "opentype.js": "^2.0.0",
+    "satori": "^0.12.1",
     "tsx": "^4.19.0",
+    "typescript": "^5.6.3",
     "vite": "^5.4.10"
   },
   "engines": {

@@ -13,6 +13,9 @@ import {
  */
 export const BAD_ACTORS_EP01_JD_VANCE: BadActorsEpisode = {
   seriesTitle: 'Bad Actors: How Politicians Pretend',
+  subject: 'Vice President J.D. Vance',
+  coverLine:
+    'A six-minute forensic read of one politician\'s rhetoric: the words he reaches for, the record behind them, and the places where the two come apart.',
   episodeNumber: 1,
   politician: 'J.D. Vance',
   party: 'Republican',

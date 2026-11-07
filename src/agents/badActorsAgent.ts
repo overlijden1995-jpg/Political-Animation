@@ -139,6 +139,10 @@ export interface BadActorsSection {
 
 export interface BadActorsEpisode {
   seriesTitle: string;
+  /** Title-page subject line, e.g. "Vice President J.D. Vance". */
+  subject?: string;
+  /** Title-page standfirst — one or two sentences of framing. */
+  coverLine?: string;
   episodeNumber: number;
   politician: string;
   party: PoliticalParty;
