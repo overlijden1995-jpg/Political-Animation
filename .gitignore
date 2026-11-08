@@ -41,3 +41,7 @@ __pycache__/
 
 # Presentation player build
 dist-deck/
+
+# generated proofs (regenerate with `npm run loyalty`)
+out/loyalty-book.pdf
+.tmp/

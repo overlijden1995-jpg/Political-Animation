@@ -17,7 +17,9 @@
     "render:longform": "tsx scripts/render.ts LongFormPlayer out/longform.mp4",
     "render:deck": "tsx scripts/render_deck.ts",
     "bad-actors": "tsx scripts/badActors.ts",
-    "pipeline": "tsx src/agents/pipeline.ts"
+    "pipeline": "tsx src/agents/pipeline.ts",
+    "loyalty": "tsx scripts/loyalty_proof.ts",
+    "loyalty:pdf": "tsx scripts/loyalty_pdf.ts"
   },
   "dependencies": {
     "react": "^18.3.1",
